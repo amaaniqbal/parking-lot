@@ -94,18 +94,24 @@ int main() {
 
     //Stores individual lines of the Input 
     string input;
-    
+    //Stores instruction to be performed for the given line
+    string instruction;
+
+    //Input Very First line of ParkingLot info
     getline(cin, input);
+    
+    //Get number of Slots to be created in Parking Lot
     int numberOfSlots = getNumberOfSlotsFromInput(input);
 
     //Create Object of ParkingLot Class
     ParkingLot P(numberOfSlots);
 
     do {
+        //Read operations line by line
         getline(cin, input);
         vector<string> keyWords = getKeyWordsFromInput(input);
         //Get instruction to be performed
-        string instruction = keyWords[0];
+        instruction = keyWords[0];
 
         if(instruction.compare("park") == 0) {
             int slotNumber = P.addCar(keyWords[1], keyWords[2]);
