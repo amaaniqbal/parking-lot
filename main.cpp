@@ -13,8 +13,8 @@ class ParkingLot {
     int numberOfCarsAllowed;
     int numberOfCarsParked; 
 
-    //Contains a mappping from allocated slots to the Car info of the car parked in that slot
-    unordered_map<int, Car> slotInfo;
+    //Contains a sorted mappping from allocated slots to the Car info of the car parked in that slot
+    map<int, Car> slotInfo;
 
 public :
     ParkingLot(int n);
@@ -23,9 +23,55 @@ public :
     vector<int> getSlotNumbersByColor(string color);
     //Helper Functions Here
     int getNearestEmptySlot();
-    void addCar(string registrationNumber, string color);
+    int addCar(string registrationNumber, string color);
     void removeCar(int slot);
 };
+
+
+
+ParkingLot::ParkingLot(int n) {
+    numberOfCarsAllowed = n;
+}
+
+int ParkingLot::getNearestEmptySlot() {
+    //If parking lot empty
+    if(slotInfo.size() == 0) {
+        return 1;
+
+    //If parking lot full
+    } else if(slotInfo.size() == numberOfCarsAllowed) {
+        return -1;
+    } else {
+        int ptr = 1;
+        for(auto it = slotInfo.begin(); it != slotInfo.end(); it++) {
+            //Is ptr slot empty
+            if(it->first != ptr) {
+                return ptr;
+            }
+            ptr++;
+        }
+        //If all the slots are filled in order
+        return ptr;
+    }
+}
+
+int ParkingLot::addCar(string regNumber, string color) {
+    int emptySlot = getNearestEmptySlot();
+    //If no slot empty
+    if(emptySlot == -1) {
+        return -1;
+    } else {
+        Car car;
+        car.slotAllocated = emptySlot;
+        car.registrationNumber = regNumber;
+        car.color = color;
+        
+        //Insert the corresponding data in slotInfo
+        slotInfo[emptySlot] = car;
+
+        return emptySlot;
+    }
+}
 
 int getNumberOfSlotsFromInput(string input) {
     int n = stoi(input.substr(19));
@@ -61,7 +107,8 @@ int main() {
         string instruction = keyWords[0];
 
         if(instruction.compare("park") == 0) {
-            //Action
+            int slotNumber = P.addCar(keyWords[1], keyWords[2]);
+            cout << "Allocated slot number: " << slotNumber << endl;
         } else if(instruction.compare("status") == 0) {
             //Action
         } else if(instruction.compare("leave") == 0) {
