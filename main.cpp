@@ -3,7 +3,6 @@ using namespace std;
 
 //Car Structure stores Car info of Cars which are parked
 struct Car {
-    int slotAllocated;
     string registrationNumber;
     string color;
 };
@@ -80,7 +79,6 @@ int ParkingLot::addCar(string regNumber, string color) {
         return -1;
     } else {
         Car car;
-        car.slotAllocated = emptySlot;
         car.registrationNumber = regNumber;
         car.color = color;
         
