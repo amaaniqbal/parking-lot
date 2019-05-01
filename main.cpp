@@ -122,6 +122,12 @@ int main() {
     do {
         //Read operations line by line
         getline(cin, input);
+
+        //If Empty Line as Input, stop further processing 
+        if(input.empty()) {
+            break;
+        }
+
         vector<string> keyWords = getKeyWordsFromInput(input);
         //Get instruction to be performed
         instruction = keyWords[0];
@@ -152,7 +158,7 @@ int main() {
         } else {
             cout << "Sorry Your Action Cannot Be Identified!!!" << endl;
         }
-    } while(instruction[0] != '\n');
+    } while(1);
 
 
     return 0;
