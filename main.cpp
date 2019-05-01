@@ -29,12 +29,11 @@ int getNumberOfSlotsFromInput(string input) {
     return n;
 }
 
-string getInstructionFromInput(string input) {
-    string result = "";
-    for(int i=0; i<input.length(); i++) {
-        if(input[i] == ' ')
-            break;
-        result += input[i];
+vector<string> getKeyWordsFromInput(string input) {
+    vector<string> result;
+    string temp;
+    while(getline(input, temp, ' ')) {
+        result.push_back(temp);
     }
     return result;
 }
@@ -54,7 +53,9 @@ int main() {
 
     do {
         getline(cin, input);
-        string instruction = getInstructionFromInput(input);
+        vector<string> keyWords = getKeyWordsFromInput(input);
+        //Get instruction to be performed
+        string instruction = keyWords[0];
 
         if(instruction.compare("park") == 0) {
             //Action
