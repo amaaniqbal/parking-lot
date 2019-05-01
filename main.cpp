@@ -21,6 +21,7 @@ public :
     int getSlotNumberByRegistrationNumber(string registrationNumber);
     vector<int> getSlotNumbersByColor(string color);
     //Helper Functions Here
+    void printStatus();
     int getNearestEmptySlot();
     int addCar(string registrationNumber, string color);
     void removeCar(int slot);
@@ -70,6 +71,12 @@ int ParkingLot::addCar(string regNumber, string color) {
 
         return emptySlot;
     }
+}
+
+void ParkingLot::printStatus() {
+    cout << left << setw(10) << "Slot No." << left << setw(20) << "Registration No" << setw(20) << "Colour" << endl;
+    for(auto it = slotInfo.begin(); it != slotInfo.end(); it++) 
+        cout << left << setw(10) << it->first << left << setw(20) << (it->second).registrationNumber << setw(20) << (it->second).color << endl;
 }
 
 int getNumberOfSlotsFromInput(string input) {
@@ -125,7 +132,7 @@ int main() {
                 cout << "Allocated slot number: " << slotNumber << endl;
             }
         } else if(instruction.compare("status") == 0) {
-            //Action
+            P.printStatus();
         } else if(instruction.compare("leave") == 0) {
             //Action
         } else if(instruction.compare("registration_numbers_for_cars_with_colour") == 0) {
