@@ -79,6 +79,10 @@ void ParkingLot::printStatus() {
         cout << left << setw(10) << it->first << left << setw(20) << (it->second).registrationNumber << setw(20) << (it->second).color << endl;
 }
 
+void ParkingLot::removeCar(int slotNumber) {
+    slotInfo.erase(slotNumber);
+}
+
 int getNumberOfSlotsFromInput(string input) {
     int n = stoi(input.substr(19));
     return n;
@@ -134,7 +138,9 @@ int main() {
         } else if(instruction.compare("status") == 0) {
             P.printStatus();
         } else if(instruction.compare("leave") == 0) {
-            //Action
+            int slotNumber = stoi(keyWords[1]);
+            P.removeCar(slotNumber);
+            cout << "Slot number " << slotNumber << " is free" << endl;
         } else if(instruction.compare("registration_numbers_for_cars_with_colour") == 0) {
             //Action
         } else if(instruction.compare("slot_numbers_for_cars_with_colour") == 0) {
@@ -144,7 +150,7 @@ int main() {
         } else if(instruction.compare("exit") == 0) {
             break;
         } else {
-            cout << "\nSorry Your Action Cannot Be Identified!!!\n";
+            cout << "Sorry Your Action Cannot Be Identified!!!" << endl;
         }
     } while(instruction[0] != '\n');
 
