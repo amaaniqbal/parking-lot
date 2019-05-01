@@ -81,7 +81,8 @@ int getNumberOfSlotsFromInput(string input) {
 vector<string> getKeyWordsFromInput(string input) {
     vector<string> result;
     string temp;
-    while(getline(input, temp, ' ')) {
+    stringstream ss(input);
+    while(getline(ss, temp, ' ')) {
         result.push_back(temp);
     }
     return result;
