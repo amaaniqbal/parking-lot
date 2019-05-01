@@ -33,6 +33,15 @@ ParkingLot::ParkingLot(int n) {
     numberOfCarsAllowed = n;
 }
 
+vector<string> ParkingLot::getRegistrationNumbersByColor(string color) {
+    vector<string> result;
+    for(auto it = slotInfo.begin(); it != slotInfo.end(); it++) {
+        if((it->second).color.compare(color) == 0)
+            result.push_back((it->second).registrationNumber);
+    }
+    return result;
+}
+
 int ParkingLot::getNearestEmptySlot() {
     //If parking lot empty
     if(slotInfo.size() == 0) {
@@ -148,7 +157,14 @@ int main() {
             P.removeCar(slotNumber);
             cout << "Slot number " << slotNumber << " is free" << endl;
         } else if(instruction.compare("registration_numbers_for_cars_with_colour") == 0) {
-            //Action
+            string color = keyWords[1];
+            vector<string> regNumbers = P.getRegistrationNumbersByColor(color);
+            for(int i=0; i<regNumbers.size(); i++) {
+                cout << regNumbers[i];
+                if(i != regNumbers.size()-1)
+                    cout << ", ";
+            } 
+            cout << endl;
         } else if(instruction.compare("slot_numbers_for_cars_with_colour") == 0) {
             //Action
         } else if(instruction.compare("slot_number_for_registration_number") == 0) {
