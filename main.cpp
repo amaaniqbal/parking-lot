@@ -142,6 +142,7 @@ int main() {
         instruction = keyWords[0];
 
         if(instruction.compare("park") == 0) {
+
             int slotNumber = P.addCar(keyWords[1], keyWords[2]);
             
             //If Parking Lot is full
@@ -150,13 +151,19 @@ int main() {
             } else {
                 cout << "Allocated slot number: " << slotNumber << endl;
             }
+
         } else if(instruction.compare("status") == 0) {
+
             P.printStatus();
+
         } else if(instruction.compare("leave") == 0) {
+
             int slotNumber = stoi(keyWords[1]);
             P.removeCar(slotNumber);
             cout << "Slot number " << slotNumber << " is free" << endl;
+
         } else if(instruction.compare("registration_numbers_for_cars_with_colour") == 0) {
+
             string color = keyWords[1];
             vector<string> regNumbers = P.getRegistrationNumbersByColor(color);
             for(int i=0; i<regNumbers.size(); i++) {
@@ -165,6 +172,7 @@ int main() {
                     cout << ", ";
             } 
             cout << endl;
+            
         } else if(instruction.compare("slot_numbers_for_cars_with_colour") == 0) {
             //Action
         } else if(instruction.compare("slot_number_for_registration_number") == 0) {
