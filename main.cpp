@@ -42,6 +42,15 @@ vector<string> ParkingLot::getRegistrationNumbersByColor(string color) {
     return result;
 }
 
+vector<int> ParkingLot::getSlotNumbersByColor(string color) {
+    vector<int> result;
+    for(auto it = slotInfo.begin(); it != slotInfo.end(); it++) {
+        if((it->second).color.compare(color) == 0)
+            result.push_back(it->first);
+    }
+    return result;
+}
+
 int ParkingLot::getNearestEmptySlot() {
     //If parking lot empty
     if(slotInfo.size() == 0) {
@@ -172,9 +181,18 @@ int main() {
                     cout << ", ";
             } 
             cout << endl;
-            
+
         } else if(instruction.compare("slot_numbers_for_cars_with_colour") == 0) {
-            //Action
+            
+            string color = keyWords[1];
+            vector<int> slotNumbers = P.getSlotNumbersByColor(color);
+            for(int i=0; i<slotNumbers.size(); i++) {
+                cout << slotNumbers[i];
+                if(i != slotNumbers.size()-1)
+                    cout << ", ";
+            } 
+            cout << endl;
+
         } else if(instruction.compare("slot_number_for_registration_number") == 0) {
 
         } else if(instruction.compare("exit") == 0) {
