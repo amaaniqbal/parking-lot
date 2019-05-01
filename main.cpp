@@ -114,7 +114,13 @@ int main() {
 
         if(instruction.compare("park") == 0) {
             int slotNumber = P.addCar(keyWords[1], keyWords[2]);
-            cout << "Allocated slot number: " << slotNumber << endl;
+            
+            //If Parking Lot is full
+            if(slotNumber == -1) {
+                cout << "Sorry, parking lot is full" << endl;
+            } else {
+                cout << "Allocated slot number: " << slotNumber << endl;
+            }
         } else if(instruction.compare("status") == 0) {
             //Action
         } else if(instruction.compare("leave") == 0) {
