@@ -18,10 +18,13 @@ class ParkingLot {
 
 public :
     ParkingLot(int n);
-    vector<string> getRegistrationNumbersByColor(string);
-    int getSlotNumberByRegistrationNumber(string);
-    vector<int> getSlotNumbersByColor(string);
+    vector<string> getRegistrationNumbersByColor(string color);
+    int getSlotNumberByRegistrationNumber(string registrationNumber);
+    vector<int> getSlotNumbersByColor(string color);
     //Helper Functions Here
+    int getNearestEmptySlot();
+    void addCar(string registrationNumber, string color);
+    void removeCar(int slot);
 };
 
 int getNumberOfSlotsFromInput(string input) {
