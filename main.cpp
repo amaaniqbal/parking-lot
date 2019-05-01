@@ -11,7 +11,6 @@ struct Car {
 //This Class Stores all the information about the Parking Lot
 class ParkingLot {
     int numberOfCarsAllowed;
-    int numberOfCarsParked; 
 
     //Contains a sorted mappping from allocated slots to the Car info of the car parked in that slot
     map<int, Car> slotInfo;
