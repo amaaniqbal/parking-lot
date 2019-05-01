@@ -41,6 +41,15 @@ vector<string> ParkingLot::getRegistrationNumbersByColor(string color) {
     return result;
 }
 
+int ParkingLot::getSlotNumberByRegistrationNumber(string regNumber) {
+    for(auto it = slotInfo.begin(); it != slotInfo.end(); it++) {
+        if((it->second).registrationNumber.compare(regNumber) == 0)
+            return it->first;
+    }
+    //If no car with given Registration number is found
+    return -1;
+}
+
 vector<int> ParkingLot::getSlotNumbersByColor(string color) {
     vector<int> result;
     for(auto it = slotInfo.begin(); it != slotInfo.end(); it++) {
@@ -192,6 +201,13 @@ int main() {
             cout << endl;
 
         } else if(instruction.compare("slot_number_for_registration_number") == 0) {
+
+            string regNumber = keyWords[1];
+            int slotNumber = P.getSlotNumberByRegistrationNumber(regNumber);
+            if(slotNumber == -1) 
+                cout << "Not found" << endl;
+            else
+                cout << slotNumber << endl;
 
         } else if(instruction.compare("exit") == 0) {
             break;
