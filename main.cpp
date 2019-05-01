@@ -105,6 +105,9 @@ int main() {
     //Create Object of ParkingLot Class
     ParkingLot P(numberOfSlots);
 
+    //Success message after lot is created
+    cout << "Created a parking lot with " << numberOfSlots << " slots" << endl;
+
     do {
         //Read operations line by line
         getline(cin, input);
