@@ -5,10 +5,15 @@ Please feel free to create Issues if you find a bug somewhere or send a Pull Req
 
 ## Setup
 
-Store the project locally. Then traverse to the root of the directory using
+Clone the project locally.
 
 ```sh
-# Change directory to a folder parking_lot
+$ git clone https://github.com/amaaniqbal/parking-lot.git
+```
+
+Change directory to folder parking_lot
+
+```sh
 $ cd parking_lot
 ```
 
