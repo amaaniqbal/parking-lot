@@ -41,3 +41,7 @@ $ ./main
 ```sh
 g++ 7.3.0 
 ```
+
+## Sample Output Window
+
+![Output](images/output.png)
