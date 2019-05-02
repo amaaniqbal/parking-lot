@@ -1,5 +1,5 @@
-#include<bits/stdc++.h>
-#include<gtest/gtest.h>
+#include "../bin/main.cpp"
+#include <gtest/gtest.h>
 using namespace std;
 
 int main(int argc, char **argv) {
