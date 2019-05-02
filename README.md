@@ -19,6 +19,53 @@ $ cd parking_lot
 
 ## Usage
 
+### Install the requirements
+
+#### Install g++
+
+```sh
+# Update package list and their versions
+$ sudo apt-get update
+```
+
+```sh
+# Install g++ in Ubuntu
+$ sudo apt-get install g++
+```
+
+#### Install cmake
+
+```sh
+# Install cmake to compile the libraries
+$ sudo apt-get install cmake
+```
+
+#### Install gtest
+
+```sh
+# Install gtest development package
+$ sudo apt-get install libgtest-dev
+```
+
+```sh
+# Locate the source files at /usr/src/gtest
+$ cd /usr/src/gtest
+```
+
+```sh
+# Compile the code to create the necessary library files
+$ sudo cmake CMakeLists.txt
+$ sudo make
+```
+
+```sh
+# Copy or symlink libgtest.a and libgtest_main.a to /usr/lib folder
+$ sudo cp *.a /usr/lib
+```
+
+
+### Execute the code
+
 Execute the following instruction one by one to run the code.
 
 ```sh
@@ -44,10 +91,26 @@ $ ./parking_lot
 $ ./main
 ```
 
+### Execute Unit Tests
+
+To run the unit tests, use the syntax given below
+
+```sh
+# Browse to /unit_tests directory from the root
+$ cd unit_tests/
+```
+
+```sh
+# Execute Test.cpp file
+$ g++ Test.cpp -lgtest -lgtest_main -pthread
+```
+
 ## Requirements
 
 ```sh
 g++ 7.3.0 
+gtest
+cmake
 ```
 
 ## Sample Output Window
