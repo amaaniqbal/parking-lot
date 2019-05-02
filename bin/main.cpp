@@ -1,3 +1,7 @@
+//This file contains main program which uses
+//classes declared in a custom header file 
+//for performing operations.
+
 #include<bits/stdc++.h>
 #include "ParkingLot.h"
 using namespace std;

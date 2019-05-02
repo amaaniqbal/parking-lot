@@ -1,3 +1,5 @@
+//This file contains all the codes for Unit Testing
+
 #include <bits/stdc++.h>
 #include <gtest/gtest.h>
 #include "../bin/ParkingLot.cpp"

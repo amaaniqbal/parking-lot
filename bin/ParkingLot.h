@@ -1,3 +1,5 @@
+//This file contains the abstract info about ParkingLot
+
 #include <bits/stdc++.h>
 using namespace std;
 

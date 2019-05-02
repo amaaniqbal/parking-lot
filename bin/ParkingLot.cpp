@@ -1,3 +1,6 @@
+//This file contains helper member functions for
+//ParkingLot class
+
 #include <bits/stdc++.h>
 #include "ParkingLot.h"
 
