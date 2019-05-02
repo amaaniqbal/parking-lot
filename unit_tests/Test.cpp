@@ -76,6 +76,31 @@ TEST(testGetRegistrationNumbersByColor, whenColorAbsent) {
     cout << "Unit Test Successful for getRegistrationNumbersByColor function, when searched color was absent!\n";
 }
 
+TEST(testGetSlotNumbersByColor, whenColorPresent) {
+    ParkingLot P(3);
+    P.addCar("KA-01-HH-1234", "White");
+    P.addCar("KA-01-HH-9999", "White");
+    P.addCar("KA-01-BB-0001", "Black");
+    
+    //Get Slot Numbers
+    vector<int> slotNumber = P.getSlotNumbersByColor("White");
+    ASSERT_EQ(slotNumber[0], 1);
+    ASSERT_EQ(slotNumber[1], 2);
+    cout << "Unit Test Successful for getSlotNumbersByColor function, when searched color was present!\n";
+}
+
+TEST(testGetSlotNumbersByColor, whenColorAbsent) {
+    ParkingLot P(3);
+    P.addCar("KA-01-HH-1234", "White");
+    P.addCar("KA-01-HH-9999", "White");
+    P.addCar("KA-01-BB-0001", "Black");
+    
+    //Get Slot Numbers
+    vector<int> slotNumber = P.getSlotNumbersByColor("Red");
+    ASSERT_EQ(slotNumber.size(), 0);
+    cout << "Unit Test Successful for getSlotNumbersByColor function, when searched color was absent!\n";
+}
+
 int main(int argc, char **argv) {
     testing::InitGoogleTest( &argc, argv );
     return RUN_ALL_TESTS();
