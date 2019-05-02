@@ -1,5 +1,6 @@
-#include "../bin/main.cpp"
+#include <bits/stdc++.h>
 #include <gtest/gtest.h>
+#include "../bin/ParkingLot.cpp"
 using namespace std;
 
 int main(int argc, char **argv) {
