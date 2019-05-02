@@ -119,5 +119,8 @@ cmake
 ```
 
 ## Sample Output Window
+Sample Output of File Input
+![Output1](images/output.png)
 
-![Output](images/output.png)
+Sample Output of Unit Testing
+![Output2](images/unit_tests.png)
