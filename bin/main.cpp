@@ -144,15 +144,9 @@ int main() {
     //Success message after lot is created
     cout << "Created a parking lot with " << numberOfSlots << " slots" << endl;
 
-    do {
-        //Read operations line by line
-        getline(cin, input);
-
-        //If Empty Line as Input, stop further processing 
-        if(input.empty()) {
-            break;
-        }
-
+    //Read operations line by line
+    while(getline(cin, input)) {
+        
         vector<string> keyWords = getKeyWordsFromInput(input);
         //Get instruction to be performed
         instruction = keyWords[0];
@@ -214,7 +208,7 @@ int main() {
         } else {
             cout << "Sorry Your Action Cannot Be Identified!!!" << endl;
         }
-    } while(1);
+    }
 
 
     return 0;
