@@ -12,7 +12,7 @@ Store the project locally. Then traverse to the root of the directory using
 $ cd parking_lot
 ```
 
-## Run
+## Usage
 
 Execute the following instruction one by one to run the code.
 
