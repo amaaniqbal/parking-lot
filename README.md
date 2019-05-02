@@ -101,8 +101,13 @@ $ cd unit_tests/
 ```
 
 ```sh
-# Execute Test.cpp file
-$ g++ Test.cpp -lgtest -lgtest_main -pthread
+# Compile Test.cpp file
+$ g++ -o unitTest Test.cpp -lgtest -lgtest_main -pthread
+```
+
+```sh
+# Execute unitTest executable file
+$ ./unitTest
 ```
 
 ## Requirements
