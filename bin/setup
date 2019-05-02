@@ -5,4 +5,37 @@
 #
 # After this is run, bin/parking_lot
 # should Just Work.
-g++ -o main main.cpp
+
+## Update package list and their versions
+#sudo apt-get update
+#
+## Install g++ in Ubuntu
+#sudo apt-get install g++
+#
+## Install cmake to compile the libraries
+#sudo apt-get install cmake
+#
+## Install gtest development package
+#sudo apt-get install libgtest-dev
+#
+## Locate the source files at /usr/src/gtest
+#cd /usr/src/gtest
+#
+## Compile the code to create the necessary library files
+#sudo cmake CMakeLists.txt
+#sudo make
+#
+## Copy or symlink libgtest.a and libgtest_main.a to /usr/lib folder
+#sudo cp *.a /usr/lib
+
+# Run the program
+g++ -o main main.cpp ParkingLot.cpp
+
+# Run Unit Tests
+# Browse to /unit_tests directory from the current
+cd ../unit_tests/
+# Compile Test.cpp file
+g++ -o unitTest Test.cpp -lgtest -lgtest_main -pthread
+# Execute unitTest executable file
+./unitTest
+
